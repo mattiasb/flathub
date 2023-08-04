@@ -5,16 +5,16 @@
 
 function error-message {
     cat << EOM
-ioquake3 needs the official Quake 3 .pk3-files to function
-properly (specifically baseq3/pak0.pk3 … baseq3/pak8.pk3 and
-optionally also missionpack/pak0.pk3 … missionpack/pak3.pk3).
+ioquake3 needs the official Quake 3 .pk3-files to function properly
+(specifically baseq3/pak0.pk3 … baseq3/pak8.pk3 and optionally
+also missionpack/pak0.pk3 … missionpack/pak3.pk3).
 
-One way to obtain these files is to buy Quake 3 Arena on
-Steam, and extract the files from the installation directory.
+One way to obtain these files is to buy Quake 3 Arena on Steam,
+and extract the files from the installation directory.
 
 Once you've obtained the files, copy them to:
 
-    ~/.var/app/org.ioquake3.IOQuake3/data/baseq3/
+    ~/.var/app/org.ioquake3.IOQuake3/data/
 
 … and restart ioquake3
 EOM
@@ -28,7 +28,7 @@ mkdir -p "${XDG_DATA_HOME}"/{baseq3,missionpack}
 for i in $(seq 0 8); do
     if [ ! -f "${XDG_DATA_HOME}/baseq3/pak${i}.pk3" ]; then
         zenity --error      \
-               --width=400  \
+               --width=450  \
                --height=200 \
                --text="$(error-message)"
         exit 2
